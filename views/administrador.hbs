@@ -1,0 +1,14 @@
+{{>header}}
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/socket.js"></script>
+<script src="js/grafica.js"></script>
+
+<form class="form-group" action="preguntar" method="post">
+  <input type="hidden" name="tituloPr" value="">
+  <label for="pregunta">Pregunta</label>
+  <input type="text" name="pregunta" placeholder="pregunta">
+  <input type="submit" name="enviar">
+
+</form>
+<button onclick="calcular()">Calcular</button>
+{{>footer}}

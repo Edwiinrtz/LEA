@@ -1,0 +1,28 @@
+{{>header}}
+<body {{!-- style="background-image: url('/img/background.jpg');" --}}>
+	<section>
+		<div id="formulario">
+			<form class="form-group" method="post" action="/wr">
+				
+				<input type="text" name="nombre" class="form-control" placeholder="Nombre" required=""><br>
+
+				<input type="email" name="email" class="form-control" placeholder="email@email.com" required=""><br>
+				
+				<select name="sexo" required=""  class="form-control">
+					<option name="F">Mujer</option>
+					<option name="M">Hombre</option>
+					<option name="S">Sin definir</option>
+				</select><br>
+
+				<input type="number" name="edad" placeholder="XX" required="" class="form-control"><br>
+				
+
+				<input type="submit" name="enviar" value="Enviar" class="btn btn-success">
+			</form>
+			<form class="fradm" action="/adminlog">
+				<input type="submit" name="" value="Admin" class="btn btn-danger">
+			</form>
+		</div>
+	</section>
+
+{{>footer}}

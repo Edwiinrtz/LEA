@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#formulario{
+	color: white;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	/*border: solid black 1px;*/
+}
+footer{
+	position: absolute;
+	bottom:0;
+	width: 100%;
+	background-color: black;
+}
+.fradm{
+	position:relative;
+	/*top: -15%;*/
+	/*right: 100%;*/
+}
+.form-group{
+	/*border: solid black 1px;*/
+}
