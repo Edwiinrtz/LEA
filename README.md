@@ -12,3 +12,4 @@ Las dependencias que se instalarán se encuentran especificadas en el archivo pa
 Ejecución
 
 Desde la consola y ubicado en la carpeta raíz del proyecto ejecutar node app ó nodemon app si se quieren monitorear los procesos del servidor.
+
