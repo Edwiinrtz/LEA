@@ -3,7 +3,7 @@ server = io()
 
 server.emit('connection',()=>{});
 
-server.emit('mensaje','conectado');
+server.emit('mensaje','listo');
 
 server.on('pregunta',(datosP)=>{
 	// var div = document.getElementById('divPregunta')

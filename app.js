@@ -20,6 +20,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// const Dict = require('Dict')
 //página inicio
 app.get('/', (req, res)=>{
   res.render('index.hbs')
@@ -30,10 +31,14 @@ app.get('/adminlog',(req,res)=>{
 })
 io.on('connection', client=>{
 	client.on('mensaje',(msn)=>{
-		console.log(msn)
+		console.log(msn + " HOLA")
 	});
 	client.on('graficar',req=>{
-		server.emit('grafica',req)
+		console.log(req)
+		io.emit('grafica',req)
+	})
+	client.on('prueba',msj=>{
+		console.log(msj)
 	})
 })
 datos=""
@@ -61,21 +66,28 @@ app.post("/wr", (req, res)=>{
 		})
 	}
 })
+
 app.get('/wr',(req,res)=>{
 	res.render('waitingroom',{
 		'datos':datos
 	})
 })
+
 //Preguntas
 app.post('/preguntar',(req,res)=>{
 	io.emit('pregunta',req.body)
 	res.render('administrador')
 })
+
 //Respuesta usuarios
 app.post('/respuesta',(req,res)=>{
 	console.log(req.body)
 	io.emit('conteo',req.body)
 	res.redirect('/wr')
+})
+app.get('/respuestaPrueba',(req,res)=>{
+	console.log(req.query)
+	io.emit('conteoPrueba',req.query)
 })
 app.get('/',(req,res)=>{
 	if (session=='adm') {

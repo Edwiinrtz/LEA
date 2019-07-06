@@ -1,8 +1,9 @@
 {
-  "name": "lea",
+  "name": "Interactive theatre",
   "version": "1.0.0",
-  "description": "Experiencia interaccion de usuario con obras",
+  "description": "Experiencia interaccion de usuario con obras teatrales",
   "main": "app.js",
+  "GitHub":"https://github.com/Edwiinrtz/LEA.git",
   "scripts": {
     "test": "node app.js"
   },
