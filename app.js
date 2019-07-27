@@ -11,45 +11,62 @@ const io = require('socket.io')(server);
 const path = require('path')
 const directorioPublico = path.join(__dirname, '/public');
 app.use(express.static(directorioPublico));
+
 // Hbs configuraciones
 const hbs = require('hbs')
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/partials');
+
 //Body-parser configuraciones
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// const Dict = require('Dict')
+//Cookies
+const CookieSession = require('cookie-session')
+
+app.use(CookieSession({
+	name:"testing_cookies",
+	keys:['gato','perro'],
+	maxAge:86400000
+}))
+
 //página inicio
 app.get('/', (req, res)=>{
-  res.render('index.hbs')
-
+	datos = req.session.datos
+	if (datos) {
+		if (datos.rol=='adm') {
+			if (datos.user == 'admin') {
+				res.render('administrador')
+			}else{
+				res.render('grafica')
+			}
+		}else{
+			res.render('waitingroom',{
+				'datos':req.session.datos
+			})
+		}
+	}else{
+	res.render('index')
+	}
 })
 app.get('/adminlog',(req,res)=>{
 	res.render('loginadm')
 })
+
 io.on('connection', client=>{
-	client.on('mensaje',(msn)=>{
-		console.log(msn + " HOLA")
-	});
 	client.on('graficar',req=>{
 		console.log(req)
 		io.emit('grafica',req)
 	})
-	client.on('prueba',msj=>{
-		console.log(msj)
-	})
 })
-datos=""
-session=""
+
 //Redirección sala de espera
-app.post("/wr", (req, res)=>{
-	datos=req.body
-	if ((req.body.user && req.body.pass)) {
-		if (req.body.user == 'admin' && req.body.pass=="edwin123") {
+app.post("/", (req, res)=>{
+	req.session.datos = req.body
+	if (req.session.datos.rol == 'adm') {
+		if (req.body.user == 'admin' && req.body.pass=="admin") {
 			res.render('administrador')
-			session='adm'
 		}else{
 			if (req.body.user=='grafica' && req.body.pass=="grafica") {
 				res.render('grafica')
@@ -60,17 +77,14 @@ app.post("/wr", (req, res)=>{
 		}
 	}
 	else{
-		session='us'
 		res.render("waitingroom",{
-		'datos':datos
+		'datos':req.session.datos
 		})
-	}
-})
+		setTimeout(function() {
 
-app.get('/wr',(req,res)=>{
-	res.render('waitingroom',{
-		'datos':datos
-	})
+			io.emit('datosUsuario',req.session.datos);
+		}, 800);
+	}
 })
 
 //Preguntas
@@ -83,22 +97,17 @@ app.post('/preguntar',(req,res)=>{
 app.post('/respuesta',(req,res)=>{
 	console.log(req.body)
 	io.emit('conteo',req.body)
-	res.redirect('/wr')
+	res.redirect('/')
 })
+
 app.get('/respuestaPrueba',(req,res)=>{
 	console.log(req.query)
 	io.emit('conteoPrueba',req.query)
 })
-app.get('/',(req,res)=>{
-	if (session=='adm') {
-		res.render('administrador')
-	}else{
-		if (session=='us') {
-			res.render('waitingroom')
-		}else{
-			res.render('index')
-		}
-	}
+
+app.post('/cerrar',(req,res)=>{
+	req.session = null
+	res.redirect('/')
 })
 //Servidor
 server.listen(3000,()=>{

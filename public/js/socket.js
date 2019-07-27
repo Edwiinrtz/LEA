@@ -1,13 +1,37 @@
-
 server = io()
 
 server.emit('connection',()=>{});
 
-server.emit('mensaje','listo');
+server.on('datosUsuario',data=>{
+	welcome = "Bienvenido "+data.nombre+" esta es la sala de espera.";
+	if (data.sexo = 'Hombre') {
+		ready = "¿Estás listo?"
+	}else{
+		ready = "¿estás lista?"
+	}
 
+	form = 
+	'<form method="post" action="/">'+
+        '<label>'+ready+
+        '<input type="submit" name="Si" value="Si" class="btn btn-primary">'+
+        '<input type="submit" name="no" value="No" class="btn btn-danger">'+
+    '</form>';
+	
+	dialogo = [welcome,'aqui estarás hasta que se te envien las preguntas','cada una de ellas las podras responder con si o no',
+	'cuando todos respondan','te diremos cual opción obtuvo más votos','dependiendo de ello continuaremos con la obra.',form];
+	txt = document.getElementById('bienvenida');
+	c = 0
+	if (data.FT=="0") {
+		for (var i = 0; i < dialogo.length; i++) {
+			setTimeout(function() {txt.innerHTML=dialogo[c];c+=1;}, 2000*i);	
+		}
+		data.FT = '1'	
+	}
+	
+})
 server.on('pregunta',(datosP)=>{
-	// var div = document.getElementById('divPregunta')
-	// div.removeChild(div.firstChild)
+	var div = document.getElementById('divPregunta')
+	div.removeChild(div.firstChild)
 	
 	pregunta = datosP.pregunta
 

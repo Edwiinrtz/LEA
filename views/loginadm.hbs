@@ -2,12 +2,15 @@
 
 <section>
 		<div id="formulario">
-			<form class="form-group" method="post" action="/wr">
-				<label for="name" style="color:Black;">Usuario</label>
-				<input type="text" name="user" class="form-control">
-				<label for="pass" style="color:Black;">contraseña</label>
-				<input type="password" name="pass" class="form-control">
+			<a id="logo" href="/"><img src="img/lea.jpg"></a>
+			<form class="form-group" method="post" action="/">
+				<input type="text" placeholder="Usuario" name="user" class="form-control">
+
+				<input type="password" placeholder="contraseña" name="pass" class="form-control">
+
+				<input type="hidden" name="rol" value="adm">
 				<input type="submit" name="enviar" value="Enviar" class="btn btn-success">
+
 			</form>
 		</div>
 	</section>

@@ -21,6 +21,3 @@ calcular=()=>{
     si=0
     no=0
 }
-// module.exports:{
-// 	calcular
-// }

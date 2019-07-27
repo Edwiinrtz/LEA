@@ -1,28 +1,28 @@
 {{>header}}
-<body {{!-- style="background-image: url('/img/background.jpg');" --}}>
-	<section>
-		<div id="formulario">
-			<form class="form-group" method="post" action="/wr">
-				
-				<input type="text" name="nombre" class="form-control" placeholder="Nombre" required=""><br>
+	<body {{!-- style="background-image: url('img/background.jpg');" --}}>
+		<section>
+			<div id="formulario">
+				<a id="logo" href="/"><img src="img/lea.jpg"></a>
+				<form class="form-group" method="post" action="/" class="panel-body">
+					
+					<input type="text" autocomplete="" name="nombre" class="form-control" placeholder="Nombre" required="">
 
-				<input type="email" name="email" class="form-control" placeholder="email@email.com" required=""><br>
-				
-				<select name="sexo" required=""  class="form-control">
-					<option name="F">Mujer</option>
-					<option name="M">Hombre</option>
-					<option name="S">Sin definir</option>
-				</select><br>
-
-				<input type="number" name="edad" placeholder="XX" required="" class="form-control"><br>
-				
-
-				<input type="submit" name="enviar" value="Enviar" class="btn btn-success">
-			</form>
-			<form class="fradm" action="/adminlog">
-				<input type="submit" name="" value="Admin" class="btn btn-danger">
-			</form>
-		</div>
-	</section>
-
+					<input type="email" autocomplete="" name="email" class="form-control" placeholder="email@email.com" required="">
+					
+					<select name="sexo" required=""  class="form-control">
+						<option name="F">Mujer</option>
+						<option name="M">Hombre</option>
+					</select>
+					
+					<input type="number" autocomplete="" name="edad" placeholder="Edad" required="" class="form-control">
+					<input type="hidden" name="rol" value="user">
+					<input type="hidden" name="FT" value="0">
+					<input type="submit" name="enviar" value="Enviar" class="btn btn-primary">
+				</form>
+				<a id="adm" href="/adminlog">administrador</a>
+				<a id="about_us"href="http://leamedellin.org">nosotros</a>
+			</div>
+			
+		</section>
+	</body>
 {{>footer}}
