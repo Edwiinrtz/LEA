@@ -1,0 +1,43 @@
+#opciones_adm{
+	width: 20%;
+	border-radius: 0;
+	position: absolute;
+	top:12%;
+	left: 2%;
+}
+#opciones_adm .btn{
+	display: block;
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 10%;
+	border-radius: 0;
+	position:relative;
+	top:0;
+}
+.container{
+	position: absolute;
+	top:12%;
+	left: 25%;
+	width: 73%;/*
+	border:1px solid black;*/
+	border-radius: 2px;
+}
+#enviar_obra{
+	position: relative;
+	top: 90%;
+	width: 100%;
+	height: 10%;
+	margin-top:5%; 
+}
+#obras{
+	position: absolute;
+	top:15%;
+	left: 10%;
+	width: 80%;
+}
+#InfoObra{
+	position: absolute;
+	top:15%;
+	left: 10%;
+	width: 80%;
+}	

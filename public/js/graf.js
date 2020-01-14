@@ -1,6 +1,5 @@
 server = io()
-server.on('grafica',valores=>{
-	console.log(valores)
+grafica=(valores)=>{
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var chart = new Chart(ctx, {
 	    // The type of chart we want to create
@@ -19,4 +18,4 @@ server.on('grafica',valores=>{
 	        // animation.animateRotate:'True'
 	    }
 	});
-})
+}

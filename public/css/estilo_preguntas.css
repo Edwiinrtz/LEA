@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+	background-color: black;
+}
+#texto{
+	color: white;
+	width: 20%;
+	margin: 0 auto;
+	margin-top:15%;
+	text-align: center;	
+}
+form{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.btnRespuestas{
+	border-color: black;
+	position: relative;
+	left: .3%;
+	background-color: rgba(0,0,0,.9);
+	width: 49.5%;
+	padding: 5%;
+	display: inline-block;
+	color: white;
+}
+#aff:hover{
+	background-color: rgb(40,148,40)
+}
+#neg:hover{
+	background-color: rgb(148,40,40);
+}
+
+
+#linea{
+	height: 10px;
+	transition: 5s;
+	background-color: green;
+	margin: 0 auto;	
+	animation-name: timer;
+	animation-duration:10s;
+	animation-fill-mode: forwards;
+}
+
+
+/*// keyframes //*/
+
+@keyframes timer{
+	from{width: 100%;}
+	to{
+		transform:scaleX(0);
+		background-color:red;
+	}
+}

@@ -5,6 +5,8 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     */
+    /*height: 10000px;*/	
+    background-color: rgba(0,0,f,.2);
 }
 #formulario{
 	position: absolute;
@@ -24,6 +26,12 @@ body{
 		width: 60%;
 		border: solid silver 1px;
 		border-radius: 7px;
+	}
+	#navBar form{
+		display: inline-block;
+		position: relative;
+		left: 50%;
+		width:10%;
 	}
 }
 #formulario img{
@@ -46,7 +54,8 @@ body{
 #formulario a:not(#logo){
 	position: absolute;
 	top:104%;
-	color:blue;text-decoration:none;
+	color:blue;
+	text-decoration:none;
 }
 select{
 	width: 50%;
@@ -56,11 +65,97 @@ select{
 	position: absolute;
 	right: 100%;
 }
-.fradm{
-	position:relative;
-	/*top: -15%;*/
-	/*right: 100%;*/
+
+/*#Pet{
+	position: absolute;
+	left: 20%;
+	top: 20%;
+	width: 30%;
+	height :30%;
+	background-color: black;
+	border-radius: 50%
 }
-.form-group{
-	/*border: solid black 1px;*/
+@media screen and (max-height: 600px ){
+	#Pet
+}*/
+#divPregunta{
+	padding: 2%;
+	/*border:1px solid black;*/
+	border-radius: 2% 2% 2% 0;
+	position: relative;
+	top:10%;
+}
+#divPregunta input{
+	height: 100%;
+	width: 50%
+}
+
+#navBar{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	height: 10%;
+	border-bottom: 1px solid black;
+	background-color:white;
+	z-index: 200;
+}
+#navBar img{
+	position: relative;
+	top:2%;
+	left: 2%;
+	width: 7%;
+	height: 90%;
+	border-radius: 5%;
+}
+#navBar form{
+	display: inline-block;
+	position: relative;
+	left: 80%;
+	width:10%;
+}
+#navBar .btn{
+	border:1px solid black;
+	width: 100%
+}
+#navBar .btn:over{
+	background-color: red;
+}
+#up{
+	position: fixed;
+	top:95%;
+	left: 97%;
+}
+
+#telon{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	width:100%;
+	height:1024px;
+	background:rgba(0,0,0,.7);
+	z-index: 200;
+	/*display: inline-block;*/
+	display: none;
+}
+#telon .card{
+	position: fixed;
+	top: 40%;
+	left: 20%;
+	width: 60%;
+}
+@media screen and (max-height:600px ){
+	#telon .card{
+	position: fixed;
+	top: 20%;
+	left: 10%;
+	width: 80%;
+}
+}
+#obra_presentacion{
+	position: absolute;
+	top:20%;
+	left:20%;
+
+	width: 60%;
 }

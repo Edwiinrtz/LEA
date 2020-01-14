@@ -1,9 +1,46 @@
 {{>header}}
 {{>dropdown}}
-    <b id="bienvenida"> </b>
-    <div id="divPregunta">
-        <b id="texto"></b>
-    </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/socket.js"> </script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/graf.js"></script>
+
+<section id="telon">
+	<div class="card">
+		<div class="card-head">
+			<h2>Respuesta</h2>
+		</div>
+		<div class="card-body">
+
+			<div id="resultados">
+			</div>
+			<canvas id="myChart" width="100px" height="100px"></canvas>
+
+		</div>
+		<div class="card-footer">
+			<button class="btn" style="width:100%;" onclick="document.getElementById('telon').style.display='none';">Cerrar</button>
+		</div>
+	</div>
+</section>
+
+<section class="card" id="obra_presentacion">
+	<section class="card-head">
+	{{!-- <button onclick="alert('{{datos.titulo}}')"></button> --}}
+		<h2 class="card-title">{{obra.titulo}}</h2>
+		<h6 class="card-subtitle">{{obra.autor}}</h6>
+	</section>
+
+	<section class="card-body">
+		<h3 >{{obra.desc}}</h3>
+	</section>
+
+	<section class="card-footer">
+			<form action="/obraPresentada" method="post">
+				<input type="submit" name="ir" class="btn btn-success" style=" width:100%;,height:100%;
+				position:relativa;top:0;left:0;" value=" ">
+			</form>
+			
+			{{!-- <form>
+				<input type="submit" class="btn btn-success" name="ver" value="entrar">
+			</form> --}}
+	</section>
+</section>
 {{>footer}}

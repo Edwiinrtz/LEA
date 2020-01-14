@@ -1,23 +1,37 @@
 server = io()
+
 var si=0;
 var	no=0;
-server.on('conteo',(res)=>{
-	if (res.affirm) {
-		si++;
-	}else{
-		no++;
-	}
-});
-server.on('conteoPrueba',(respuesta)=>{
-    console.log(respuesta.affirm)    
-})
 
-calcular=()=>{
+disabled=()=>{
+    document.getElementById("aff").disabled = true; 
+    document.getElementById("neg").disabled = true; 
+}
+
+contar=(resp)=>{
+    alert(resp)
+    if(resp){
+        si++
+    }else{
+        no++
+    }
+    disabled();
+}
+
+
+calcular=(idPregunta,pregunta)=>{
+    alert('calculado')
+
     valores={
         'si':si,
         'no':no
     }
-    server.emit('graficar',valores)
+    preguntaObra={
+        pregunta:pregunta,
+        idPregunta:idPregunta,
+        respuesta:valores
+    }
+    server.emit('mostrar',preguntaObra)
     si=0
     no=0
 }

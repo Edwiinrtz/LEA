@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>preguntas</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo_preguntas.css">
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/socket.js"></script>
+	<script type="text/javascript" src="js/grafica.js"></script>
+</head>
+<body>
+	<h2 id="texto">texto de prueba</h2>
+	
+	<div id="divPregunta">
+
+		<form id="formPregunta" method="post" action="/respuesta" class="form-group">
+			<div id="linea"></div>
+			<input type="button" name="affirm" id="aff" class="btn btnRespuestas" onclick="contar(true)" value="SÍ">
+
+			<input type="button" name="negat" id="neg" class="btn btnRespuestas" onclick="contar(false)" value="NO">
+
+			<input type="hidden" name="idPre" id="idPre" value="">
+			
+			<script type="text/javascript">
+
+			setTimeout(function() {
+				document.getElementById("aff").disabled = true; 
+    			document.getElementById("neg").disabled = true; 
+			}, 10000);
+			
+			</script>
+		</form>
+		
+	</div>
+
+</body>
+</html>

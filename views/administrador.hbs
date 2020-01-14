@@ -4,12 +4,19 @@
 <script src="js/socket.js"></script>
 <script src="js/grafica.js"></script>
 
-<form class="form-group" action="preguntar" method="post">
-  <input type="hidden" name="tituloPr" value="">
-  <label for="pregunta">Pregunta</label>
-  <input type="text" name="pregunta" placeholder="pregunta">
-  <input type="submit" name="enviar">
+<section id="opciones_adm">
+	<button class="btn btn-primary" id="crearObra">Crear obra</button>
+	<form action="/obras" method="post"><button class="btn btn-success">Obras</button></form>
+</section>
+<div class="container">
 
-</form>
-<button onclick="calcular()">Calcular</button>
+</div>
+<script type="text/javascript">
+$('document').ready(function(){
+	$("#crearObra").click(function(){
+		$('.container').load('administrador/crearObra.hbs');
+	});
+});
+</script>
+{{>desp}}
 {{>footer}}
